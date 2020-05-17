@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="../WEB-INF/templates/sgTemp.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+    <ui:define name="Title">
+        Add Singer
+    </ui:define>
+
+    <ui:define name="Content">
+        <h1 style="text-align: center">Add Singer</h1>
+        <h:form>           
+            <h:panelGroup layout="block" class="form-group">
+                <h:outputLabel for="id" value="ID:#{singerController.singer.id}"/>
+                <h:inputHidden id="id" class="form-control" value="#{singerController.singer.id}"/> 
+                <h:message for="id" errorClass="text-danger"/>
+            </h:panelGroup>     
+            <br></br>
+
+            <h:panelGroup layout="block" class="form-group">
+                <h:outputLabel for="version" value="Version:#{singerController.singer.version}"/>
+                <h:inputHidden id="version" class="form-control" value="#{singerController.singer.version}"/> 
+                <h:message for="version" errorClass="text-danger"/>
+            </h:panelGroup>     
+            <br></br>
+
+            <h:panelGroup layout="block" class="form-group">
+                <h:outputLabel for="firstName" value="First Name"/>
+                <h:inputText id="firstName" 
+                             class="form-control" 
+                             p:placeholder="Smith"
+                             value="#{singerController.singer.firstName}"/>  
+                <h:message for="firstName" errorClass="text-danger"/>
+            </h:panelGroup>
+            <br></br>
+
+            <h:panelGroup layout="block" class="form-group">
+                <h:outputLabel for="last_Name" value="Last Name"/>
+                <h:inputText id="last_Name" 
+                             p:placeholder="James"
+                             class="form-control" value="#{singerController.singer.lastName}"/>  
+                <h:message for="last_Name" errorClass="text-danger"/>
+            </h:panelGroup>
+            <br></br>
+
+            <h:panelGroup layout="block" class="form-group">
+                <h:outputLabel for="doB" value="Date of Birth:" />
+                <h:inputText class="form-control" id="doB" value="#{singerController.singer.doB}" p:type="date">
+                    <f:convertDateTime type="localDate" pattern="yyyy-MM-dd" />
+                </h:inputText>
+                
+            </h:panelGroup>
+
+            <h:panelGroup layout="block" class="form-group">
+                <h:outputLabel for="email" value="Email id"/>
+                <h:inputText                   
+                    id="email"  
+                    p:placeholder="example@domain.com"
+                    class =" form-control"  
+                    value="#{singerController.singer.emailId}" 
+                    /> 
+                <h:message for="email" errorClass="text-danger"/>
+            </h:panelGroup>
+            <br></br>
+
+            <h:panelGroup layout="block" class="form-group">
+                <h:outputLabel for="songs" value="Songs"/>
+                <h:selectManyListbox  class="form-group" id="songs" value="#{singerController.addSongs}">
+                    <f:selectItems value="#{songsService.findAll()}"
+                                   var="songs"
+                                   itemLabel="#{songs.songName} #{songs.songCode}"
+                                   itemValue="#{songs}"  />                 
+
+                </h:selectManyListbox>
+            </h:panelGroup>
+
+            <h:panelGroup layout="block" class="form-group">
+                <h:commandButton  class="btn btn-primary" value="Add Singer" action="#{singerController.addSinger()}"/>
+            </h:panelGroup>
+
+        </h:form>
+    </ui:define>
+</ui:composition>

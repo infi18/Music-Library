@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+    <context-param>
+        <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-value>Development</param-value>
+    </context-param>
+
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>login.xhtml</welcome-file>
+    </welcome-file-list>
+    
+    <data-source>
+        <name>java:app/jdbc/itmd4515DS</name>
+        <class-name>com.mysql.cj.jdbc.MysqlDataSource</class-name>
+        <url>jdbc:mysql://localhost:8000/itmd4515?zeroDateTimeBehavior=CONVERT_TO_NULL&amp;useSSL=false</url>
+        <user>itmd4515</user>
+        <password>itmd4515</password>
+        <!--<property>
+           <name>fish.payara.sql-trace-listeners</name>
+           <value>com.sun.gjc.util.SQLTraceLogger</value>
+        </property>-->
+    </data-source>
+    
+    <security-constraint>
+        
+        <display-name>Landing Page</display-name>
+        
+        <web-resource-collection>
+            <web-resource-name>Landing Page</web-resource-name>
+            <description>Authenticated Users Only</description>
+            <url-pattern>/Welcome.xhtml/</url-pattern>
+        </web-resource-collection>
+        
+        <auth-constraint>
+            <role-name>Administrator</role-name>
+            <role-name>Listener</role-name>
+        </auth-constraint>
+        
+    </security-constraint>
+    
+   
+    <security-constraint>
+        <display-name>Admin Content</display-name>
+        <web-resource-collection>
+            <web-resource-name>Administrator Content</web-resource-name>
+            <description>This contains content for the Administrators</description>
+            <url-pattern>/Admin/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>Administrator</role-name>
+        </auth-constraint>
+    </security-constraint>
+   
+    <security-constraint>
+        <display-name>Listener Content</display-name>
+        <web-resource-collection>
+            <web-resource-name>Listener Content</web-resource-name>
+            <description>This contains content for the Listeners</description>
+            <url-pattern>/Listener/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>Listener</role-name>
+        </auth-constraint>
+    </security-constraint>
+   
+</web-app>

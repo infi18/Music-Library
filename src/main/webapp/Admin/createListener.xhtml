@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="../WEB-INF/templates/sgTemp.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+    <ui:define name="Title">
+        Add Listener
+    </ui:define>
+
+    <ui:define name="Content">
+        <h1 style="text-align: center">To Add Listener</h1>
+        <h:form>           
+            <h:panelGroup layout="block" class="form-group">
+                <h:outputLabel for="id" value="ID:#{listenerController.listener2.id}"/>
+                <h:inputHidden id="id" class="form-control" value="#{listenerController.listener2.id}"/> 
+                <h:message for="id" errorClass="text-danger"/>
+            </h:panelGroup>     
+            <br></br>
+
+
+            <h:panelGroup layout="block" class="form-group">
+                <h:outputLabel for="fname" value="First Name"/>
+                <h:inputText id="fname" 
+                             class="form-control"  
+                             value="#{listenerController.listener2.firstName}"
+                             requiredMessage="First Name Cannot Be Null"/>  
+                <h:message for="fname" errorClass="text-danger"/>
+            </h:panelGroup>
+            <br></br>
+
+            <h:panelGroup layout="block" class="form-group">
+                <h:outputLabel for="lname" value="Last Name"/>
+                <h:inputText id="lname" 
+                             class="form-control" 
+                             value="#{listenerController.listener2.lastName}"
+                             requiredMessage="Last Name Cannot Be Null"/> 
+
+                <h:message for="lname" errorClass="text-danger"/>
+            </h:panelGroup>
+            <br></br>
+
+            <h:panelGroup layout="block" class="form-group">
+                <h:outputLabel for="date" value="Date of Birth:" />
+                <h:inputText class="form-control"  
+                             id="date" 
+                             value="#{listenerController.listener2.doB}" p:type="date">
+                    <f:convertDateTime type="localDate" pattern="yyyy-MM-dd" />
+                </h:inputText>
+            </h:panelGroup>
+
+            <h:panelGroup layout="block" class="form-group">
+                <h:outputLabel for="email" value="Email id"/>
+                <h:inputText                   
+                    id="email"  
+                    class="form-control" 
+                    value="#{listenerController.listener2.emailId}" 
+                    p:type="email"
+                    requiredMessage="Email Cannot Be Null" 
+                    /> 
+                <h:message for="email" errorClass="text-danger"/>
+            </h:panelGroup>
+            <br></br>
+
+            <h:panelGroup layout="block" class="form-group">
+                <h:outputLabel for="phoneNumber" value="Phone Number"/>
+                <h:inputText                   
+                    id="phoneNumber"  
+                    class="form-control"    
+                    value="#{listenerController.listener2.phoneNumber}" 
+                    p:type="number"
+                    /> 
+
+                <h:message for="phoneNumber" errorClass="text-danger"/>
+            </h:panelGroup>
+            <br></br>
+
+            <h:panelGroup layout="block" class="form-group">
+                <h:outputLabel for="username" value="Username"/>
+                <h:inputText id="username" class="form-control" 
+                             value="#{listenerController.listener2.user.username}"/>  
+                <h:message for="username" errorClass="text-danger"/>
+            </h:panelGroup>
+            <br></br>
+
+            <h:panelGroup layout="block" class="form-group">
+                <h:outputLabel for="password" value="Password"/>
+                <h:inputText id="password" class="form-control" 
+                             value="#{listenerController.listener2.user.password}"/>  
+                <h:message for="password" errorClass="text-danger"/>
+            </h:panelGroup>
+            <br></br>
+
+            <h:panelGroup layout="block" class="form-group">
+                <h:commandButton  class="btn btn-primary" value="Add New Listener" 
+                                  action="#{listenerController.addListener()}"/>
+            </h:panelGroup>
+
+            <h:panelGroup layout="block" class="form-group">
+                <h:commandButton  class="btn btn-primary mb-2" value="Add New Admin" action="#{listenerController.addAdmin()}"/>
+            </h:panelGroup>
+
+        </h:form>
+    </ui:define>
+</ui:composition>

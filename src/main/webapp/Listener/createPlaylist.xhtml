@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="../WEB-INF/templates/sgTemp.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="Title">
+        Add Playlist
+    </ui:define>
+
+    <ui:define name="Content">
+        <h1 style="text-align: center">Add Playlist</h1>
+        <h:form>           
+            <h:panelGroup layout="block" class="form-group">
+                <h:outputLabel for="id" value="ID:#{playlistController.playlist.id}"/>
+                <h:inputHidden id="id" class="form-control" value="#{playlistController.playlist.id}"/> 
+                <h:message for="id" errorClass="text-danger"/>
+            </h:panelGroup>     
+            <br></br>
+
+            <h:panelGroup layout="block" class="form-group">
+                <h:outputLabel for="version" value="Version:#{playlistController.playlist.version}"/>
+                <h:inputHidden id="version" class="form-control" value="#{playlistController.playlist.version}"/> 
+                <h:message for="version" errorClass="text-danger"/>
+            </h:panelGroup>     
+            <br></br>
+
+            <h:panelGroup layout="block" class="form-group">
+                <h:outputLabel for="name" value="Playlist Name"/>
+                <h:inputText id="name" class="form-control" value="#{playlistController.playlist.name}"/>  
+                <h:message for="name" errorClass="text-danger"/>
+            </h:panelGroup>
+            <br></br>
+            
+
+            <h:panelGroup layout="block" class="form-group">
+                <h:outputLabel for="songs" value="Add Songs:"/>
+                <h:selectManyListbox  class="form-group" id="songs" value="#{playlistController.addSongs}">
+                    <f:selectItems value="#{playlistController.allSongs}"
+                                   var="songs"
+                                   itemLabel="#{songs.songName} #{songs.songCode}"
+                                   itemValue="#{songs}"  />                 
+                </h:selectManyListbox>
+            </h:panelGroup>
+            <br></br>
+
+
+
+            <h:panelGroup layout="block" class="form-group">
+                <h:commandButton  class="btn btn-primary" value="Add Playlist" action="#{playlistController.createPlaylist()}"/>
+            </h:panelGroup>
+
+        </h:form>
+    </ui:define>
+</ui:composition>

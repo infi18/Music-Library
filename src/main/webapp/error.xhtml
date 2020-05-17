@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      template="./WEB-INF/templates/sgTemp3.xhtml"
+      
+      
+          
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:define name="Title">
+        Error Page
+    </ui:define>
+
+    <ui:define name="Content" class="text-light text-center">
+        
+        <h1 style="font-family: Brush Script">Sorry for the Inconvenience !!</h1>
+        <h2 style="font-family: Brush Script">There has Been some Error with your Authentication ! Please try again </h2><br/>
+        <h2 style="font-family: Brush Script">If you don't have an account yet please Sign up by clicking the link below</h2><br/>
+        
+        <h3 style="font-family: Brush Script"> <h:link outcome="/signUp.xhtml" value="Signup Page"/></h3>
+        <br></br>
+        
+        <h3 style="font-family: Brush Script"> <h:link outcome="/login.xhtml" value="Login Page"/></h3>
+        
+        
+        
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"  crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"  crossorigin="anonymous"></script>
+   
+    
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"edu.iit.sat.itmd4515.snaik10.config"},{"l":"edu.iit.sat.itmd4515.snaik10.domain"},{"l":"edu.iit.sat.itmd4515.snaik10.resources"},{"l":"edu.iit.sat.itmd4515.snaik10.security"},{"l":"edu.iit.sat.itmd4515.snaik10.service"},{"l":"edu.iit.sat.itmd4515.snaik10.web"}]

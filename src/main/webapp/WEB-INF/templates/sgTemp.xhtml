@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      >
+
+    <h:head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+        <title>
+            <ui:insert name="Title">Default Title</ui:insert>
+        </title>
+
+        <!--             <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/product/"></link>-->
+        <!-- Bootstrap CSS-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous"></link>
+
+        <h:outputStylesheet library="css" name="product.css"/>
+    </h:head>
+    <h:body style ="background-image: url('https://img.wallpapersafari.com/desktop/1600/900/76/60/wzNM7l.jpg')">
+        <nav class="site-header sticky-top py-1">
+            <div class="container d-flex flex-column flex-md-row justify-content-between">
+                
+                
+                <li class="py-2 d-none d-md-inline-block" >
+                    <h:link class="nav-link" outcome="/Welcome.xhtml" value="Home"/>
+                </li>
+
+                <ui:fragment rendered="#{loginController.listener}">
+                    <li class="py-2 d-none d-md-inline-block" >
+                        <h:link class="nav-link" outcome="/Listener/ListenerWelcome.xhtml" value="Listener"/>
+                    </li>
+                </ui:fragment>
+
+                <ui:fragment rendered="#{loginController.admin}">       
+                    <li class="py-2 d-none d-md-inline-block" >
+                        <h:link class="nav-link" outcome="/Admin/AdminWelcome.xhtml" value="Admin"/>
+                    </li>
+                </ui:fragment>
+
+                <ui:fragment >
+                    <li class="py-2 d-none d-md-inline-block">
+                        <h:link class="nav-link" outcome="/allAlbums.xhtml" value="Album"/>
+                    </li>
+                </ui:fragment>
+
+                <ui:fragment rendered="#{loginController.listener}">
+                    <li class="py-2 d-none d-md-inline-block" >
+                        <h:link class="nav-link" outcome="/Listener/listenerplaylist.xhtml" value="Playlist"/>
+                    </li>
+                </ui:fragment>
+
+
+                <ui:fragment >
+                    <li class="py-2 d-none d-md-inline-block" >
+                        <h:link class="nav-link" outcome="/allSongs.xhtml" value="Songs"/>
+                    </li>
+                </ui:fragment>
+                                      
+                <h:form>
+                    <li class="py-2 d-none d-md-inline-block" >
+                        <h:commandLink class="nav-link" action="#{loginController.doLogout()}" value="LogOut"/>
+                    </li>
+                </h:form>
+
+            </div>
+        </nav>
+
+        <div class="text-center text-white">
+            <div class="mx-auto my-5">
+                <h1 class="display-4 font-weight-normal">Welcome #{loginController.authenticatedUser}</h1>
+
+                <ui:insert name="Content">Default Content</ui:insert>
+                <!--                <a class="btn btn-outline-secondary" href="#">Coming soon</a>-->
+            </div>
+        </div>
+
+        <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+            <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+                <div class="my-3 py-3">
+                    <h2 class="display-5">Singer</h2>
+                    <p class="lead">About Singers present</p>
+                    <h:link class="nav-link" outcome="/allSingers" value="View Singers"/>
+                </div>
+                <div class="bg-light box-shadow mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+                    <h:graphicImage value ="http://avante.biz/wp-content/uploads/Wallpapers-Music/Wallpapers-Music-035.jpg" width="500" height="500"/>
+                </div>
+            </div>
+
+            <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+                <div class="my-3 p-3">
+                    <h2 class="display-5">Album</h2>
+                    <p class="lead">About Albums.</p>
+                    <h:link class="nav-link text-dark" outcome="/allAlbums" value="View Albums"/>
+                </div>
+                <div class="bg-dark box-shadow mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+                    <h:graphicImage value ="https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77701289337-1200x750.jpg" width="500" height="500"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+
+            <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+                <div class="my-3 p-3">
+                    <h2 class="display-5">Playlist</h2>
+                    <p class="lead">Playlist</p>
+                </div>
+                <div class="bg-dark box-shadow mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+                    <h:graphicImage value ="https://image.freepik.com/free-photo/close-up-vinyl-record-black-background_23-2147889973.jpg" width="500" height="500"/>
+                </div>
+            </div>          
+            <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+                <div class="my-3 py-3">
+                    <h2 class="display-5">Songs</h2>
+                    <p class="lead">Songs</p>
+                </div>
+                <div class="bg-light box-shadow mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+                    <h:graphicImage value ="https://cdn.suwalls.com/wallpapers/music/glowing-neon-guitar-outline-19107-1920x1080.jpg" width="500" height="500"/>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->       
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"  crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"  crossorigin="anonymous"></script>
+    </h:body>
+
+</html>
+

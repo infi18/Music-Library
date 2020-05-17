@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions">
+
+    <ui:insert name="metadata" />
+
+    <h:head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous"/>
+
+        <h:outputStylesheet library="css" name="cover.css" />
+        <title> 
+            <ui:insert name="Title">
+                Default Title
+            </ui:insert>
+        </title>
+    </h:head>
+    <h:body style ="background-image: url('https://img.wallpapersafari.com/desktop/1600/900/94/10/RGKEib.jpg')">
+                <nav class="site-header sticky-top py-1 bg-dark" >
+            <div class="container d-flex flex-column flex-md-row justify-content-between">
+                
+
+                <li class="py-2 d-none d-md-inline-block" >
+                    <h:link class="nav-link" outcome="/Welcome.xhtml" value="Home"/>
+                </li>
+
+                <ui:fragment rendered="#{loginController.listener}">
+                    <li class="py-2 d-none d-md-inline-block" >
+                        <h:link class="nav-link" outcome="/Listener/ListenerWelcome.xhtml" value="Listener"/>
+                    </li>
+                </ui:fragment>
+
+                <ui:fragment rendered="#{loginController.admin}">       
+                    <li class="py-2 d-none d-md-inline-block" >
+                        <h:link class="nav-link" outcome="/Admin/AdminWelcome.xhtml" value="Admin"/>
+                    </li>
+                </ui:fragment>
+
+                <ui:fragment >
+                    <li class="py-2 d-none d-md-inline-block">
+                        <h:link class="nav-link" outcome="/allAlbums.xhtml" value="Album"/>
+                    </li>
+                </ui:fragment>    
+                
+                <ui:fragment >
+                    <li class="py-2 d-none d-md-inline-block" >
+                        <h:link class="nav-link" outcome="/allSongs.xhtml" value="Songs"/>
+                    </li>
+                </ui:fragment>
+
+                <ui:fragment rendered="#{loginController.listener}">
+                    <li class="py-2 d-none d-md-inline-block" >
+                        <h:link class="nav-link" outcome="/Listener/listenerplaylist.xhtml" value="Playlist"/>
+                    </li>
+                </ui:fragment>
+                                                                    
+
+                <h:form>
+                    <li class="py-2 d-none d-md-inline-block" >
+                        <h:commandLink class="nav-link" action="#{loginController.doLogout()}" value="LogOut"/>
+                    </li>
+                </h:form>
+
+            </div>
+        </nav>
+        <div class="text-center  text-white">
+            <div class="mx-auto my-5">
+                
+
+                <ui:insert name="Content">Default Content</ui:insert>
+                <!--                <a class="btn btn-outline-secondary" href="#">Coming soon</a>-->
+            </div>
+        </div>
+    </h:body>
+</html>
+

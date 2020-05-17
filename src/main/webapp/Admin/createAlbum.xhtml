@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="../WEB-INF/templates/sgTemp.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+    <ui:define name="Title">
+        Add Album
+    </ui:define>
+
+    <ui:define name="Content">
+        <h1 style="text-align: center">Add Album</h1>
+        <h:form>           
+            <h:panelGroup layout="block" class="form-group">
+                <h:outputLabel for="id" value="ID:#{albumController.album.id}"/>
+                <h:inputHidden id="id" class="form-control" value="#{albumController.album.id}"/> 
+                <h:message for="id" errorClass="text-danger"/>
+            </h:panelGroup>     
+            <br></br>
+
+            <h:panelGroup layout="block" class="form-group">
+                <h:outputLabel for="version" value="Version:#{albumController.album.version}"/>
+                <h:inputHidden id="version" class="form-control" value="#{albumController.album.version}"/> 
+                <h:message for="version" errorClass="text-danger"/>
+            </h:panelGroup>     
+            <br></br>
+
+            <h:panelGroup layout="block" class="form-group">
+                <h:outputLabel for="name" value="Album Name"/>
+                <h:inputText id="name" class="form-control" value="#{albumController.album.albumName}"/>  
+                <h:message for="name" errorClass="text-danger"/>
+            </h:panelGroup>
+            <br></br>
+
+            <h:panelGroup layout="block" class="form-group">
+                <h:outputLabel for="date" value="Date of Release:" />
+                <h:inputText class="form-control" id="date" value="#{albumController.album.release_Date}" p:type="date">
+                    <f:convertDateTime type="localDate" pattern="yyyy-MM-dd" />
+                </h:inputText>
+                <h:message for="date" errorClass="text-danger"/>
+            </h:panelGroup>
+
+            <h:panelGroup layout="block" class="form-group">
+                <h:outputLabel for="songs" value="Add Songs"/>
+                <h:selectManyListbox  class="form-group" id="songs" value="#{albumController.addSongs}">
+                    <f:selectItems value="#{songsService.findAll()}"
+                                   var="songs"
+                                   itemLabel="#{songs.songName} #{songs.songCode}"
+                                   itemValue="#{songs}"  />   
+
+                </h:selectManyListbox>
+            </h:panelGroup>
+            <br></br>
+  
+
+            <h:panelGroup layout="block" class="form-group">
+                <h:commandButton  class="btn btn-primary" value="Add Album" action="#{albumController.addAlbum()}"/>
+            </h:panelGroup>
+
+        </h:form>
+    </ui:define>
+</ui:composition>

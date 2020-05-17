@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./WEB-INF/templates/sgTemp.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="Title">
+        Confirmation Page
+    </ui:define>
+
+    <ui:define name="Content">
+
+        <h3>Album: </h3>
+        <h:dataTable class ="table table-hover table-striped text-light"
+                     value="#{albumController.albumSong}" var="a">
+            <h:column>
+                <h:outputText value="#{a.id}"/>
+                <f:facet name="header"><h:outputText value="ID"/></f:facet>
+            </h:column>
+            <h:column>
+                <h:outputText value="#{a.albumName}"/>
+                <f:facet name="header"><h:outputText value="Name"/></f:facet>
+            </h:column>
+            <h:column>
+                <h:outputText value="#{a.release_Date}"/>
+                <f:facet name="header"><h:outputText value="Release Date"/></f:facet>
+            </h:column>
+            <h:column>
+                <h:outputText value="#{a.song_names}"/>
+                <f:facet name="header"><h:outputText value="Songs"/></f:facet>
+            </h:column>                       
+
+<!--            <h:column>               
+                <h:link outcome="/Admin/viewAlbum.xhtml?id=#{a.id}" value= "View"/>
+                <br></br>
+                <h:link outcome="/Admin/editAlbum.xhtml?id=#{a.id}" value= "Edit"/>
+                <br></br>
+                <h:link outcome="/Admin/deleteAlbum.xhtml?id=#{a.id}" value= "Delete"/>
+
+            </h:column>-->
+
+        </h:dataTable>
+        <br></br>
+
+
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./WEB-INF/templates/sgTemp3.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+    <ui:define name="Title">
+        Sign up Page
+        <h:outputStylesheet library="css" name="signin.css"/>
+    </ui:define>
+
+    <ui:define name="Content">
+        <h1 style="text-align: center">Sign Up</h1>
+        <h:form>           
+            <h:panelGroup layout="block" class="form-group">
+                <h:outputLabel for="id" value="ID:#{signUpController.listener.id}"/>
+                <h:inputHidden id="id" class="form-control" value="#{signUpController.listener.id}"/> 
+                <h:message for="id" errorClass="text-danger"/>
+            </h:panelGroup>     
+           
+            <h:panelGroup layout="block" class="form-group">
+                <h:outputLabel for="First_Name" value="First Name"/>
+                <h:inputText id="First_Name" 
+                             class="form-control" 
+                             value="#{signUpController.listener.firstName}"
+                             p:placeholder="Jane"
+                             />  
+                <h:message for="First_Name" errorClass="text-danger"/>
+            </h:panelGroup>
+         
+            <h:panelGroup layout="block" class="form-group">
+                <h:outputLabel for="lastName" value="Last Name"/>
+                <h:inputText id="lastName" 
+                             class="form-control"
+                             value="#{signUpController.listener.lastName}"
+                             p:placeholder="Doe"
+                             /> 
+
+                <h:message for="lastName" errorClass="text-danger"/>
+            </h:panelGroup>
+        
+            <h:panelGroup layout="block" class="form-group">
+                <h:outputLabel for="date" value="Date of Birth:" />
+                <h:inputText class =" form-control"    
+                             id="date" 
+                             value="#{signUpController.listener.doB}" 
+                             p:type="date"
+                             p:placeholder="">
+                    <f:convertDateTime type="localDate" pattern="yyyy-MM-dd" />
+                </h:inputText>
+            </h:panelGroup>
+
+            <h:panelGroup layout="block" class="form-group">
+                <h:outputLabel for="emailId" value="Email id"/>
+                <h:inputText                   
+                    id="emailId"  
+                    p:placeholder="example@domain.com"
+                    class =" form-control"  
+                    value="#{signUpController.listener.emailId}" 
+                    /> 
+                <h:message for="emailId" errorClass="text-danger"/>
+
+            </h:panelGroup>
+
+            <h:panelGroup layout="block" class="form-group">
+                <h:outputLabel for="phoneNumber" value="Phone Number"/>
+                <h:inputText                   
+                    id="phoneNumber"  
+                    class =" form-control" 
+                    value="#{signUpController.listener.phoneNumber}" 
+                    p:type="number"                    
+                    /> 
+                <h:message for="phoneNumber" errorClass="text-danger"/>
+            </h:panelGroup>
+
+            <h:panelGroup layout="block" class="form-group">
+                <h:outputLabel for="username" value="Username"/>
+                <h:inputText id="username" class="form-control" 
+                             value="#{signUpController.listener.user.username}"
+                             p:placeholder="Username"/>  
+                <h:message for="username" errorClass="text-danger"/>
+            </h:panelGroup>
+
+            <h:panelGroup layout="block" class="form-group">
+                <h:outputLabel for="password" value="Password"/>
+                <h:inputSecret id="password" class="form-control" 
+                               value="#{signUpController.listener.user.password}"
+                               p:placeholder="Password"/>  
+                <h:message for="password" errorClass="text-danger"/>
+            </h:panelGroup>
+
+            <h:panelGroup layout="block" class="form-group">
+                <h:commandButton  class="btn btn-primary" value="Add New Listener" action="#{signUpController.addListener()}"/>
+            </h:panelGroup>
+
+        </h:form>
+    </ui:define>
+</ui:composition>

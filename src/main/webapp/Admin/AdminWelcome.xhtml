@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="../WEB-INF/templates/sgTemp.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="Title">
+        Admin Page
+    </ui:define>
+
+    <ui:define name="Content" class="text-white">
+        <ul>
+            <h:link class="text-light h4 box-shadow btn btn-outline-secondary" outcome="/Admin/createAlbum.xhtml" value="Add-New-Album"/>
+            <br/>            
+            <h:link class="text-light h4 box-shadow btn btn-outline-secondary" outcome="/Admin/createSinger.xhtml" value="Add New Singer"/>
+            <br/>            
+            <h:link class="text-light h4 box-shadow btn btn-outline-secondary" outcome="/Admin/createListener.xhtml" value="Add New Listener"/>
+            <br/>        
+            <h:link class="text-light h4 box-shadow btn btn-outline-secondary" outcome="/Admin/AddSongsForm.xhtml" value="Add New Songs"/>
+            <br/> 
+             <h:link class="text-light h4 box-shadow btn btn-outline-secondary" outcome="/Admin/confirmation.xhtml" value="View All Entities"/>
+            <br/> 
+
+        </ul>
+
+    </ui:define>
+</ui:composition>
