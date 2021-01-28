@@ -1,5 +1,5 @@
 # music-library
-Music  Library  will  be  a  Web  Application  wherein  a  person   can   access  songs  add  new  songs,  create  a  playlist, view  all  songs,  albums,  singers,  etc. 
+Music  Library  is  a  Web  Application  wherein  a  person   can   access  songs  add  new  songs,  create  a  playlist, view  all  songs,  albums,  singers,  etc. 
 The   Music  Library  consists of 5 entities:  Songs,  Singer,  Albums,  Playlist,  Listener.  
 Each entity has an EJB Service Layer Defined for it for adding values in database and Controllers for fetching those values and passing them to the specific JSF pages. 
 
@@ -10,7 +10,7 @@ The project requires some some installations to be made for it to work. The tech
 Apache Netbeans 11.2 (Latest Version)
 Payara Server 5.194 (Latest Version)
  MySQL Database Installer, Workbench and shell 8.0.19 (Latest Version)
-Below in depth are the steps for installation of the above requirements and database setup (Referred from the Installation and Setup Documents provided by Professor)
+Below in depth are the steps for installation of the above requirements and database setup 
 
 Download Open JDK 11 and install it.
 Download Netbeans latest version and install it with default values.
